@@ -2,10 +2,12 @@
 using System.Threading.Tasks;
 using Domain.DTO.Request;
 using Domain.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventorySystem.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class SellController : Controller
@@ -24,7 +26,7 @@ namespace InventorySystem.Controllers
         /// <param name="request"></param>
         /// <returns></returns>
         [HttpPost("{businessId}/create")]
-        public async Task<IActionResult> Create(Guid businessId, SellRequestDTO request)
+        public async Task<IActionResult> Create([FromRoute]Guid businessId, [FromBody]SellRequestDTO request)
         {
             var response = await SellService.Add(businessId, request);
             return Ok(response);

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Domain.DTO.Request;
 using Domain.Interface;
 using Domain.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,6 +11,7 @@ namespace InventorySystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+  //  [Authorize]
     public class UserController : Controller
     {
         public UserController(IUserService userService)
@@ -33,5 +35,6 @@ namespace InventorySystem.Controllers
             var res = await UserService.CreateUser(businessId, request);
             return Ok(res);
         }
+
     }
 }

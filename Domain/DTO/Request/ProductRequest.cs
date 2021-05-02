@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Model;
+using Microsoft.AspNetCore.Http;
 
 namespace Domain.DTO.Request
 {
@@ -32,7 +33,7 @@ public    class ProductRequest
         {
         //[Url(ErrorMessage = "Invalid Url")]
         //[Required(ErrorMessage = "Url must not be empty")]
-        public string Url { get; set; }
+        public IFormFile Image { get; set; }
     }
 
 

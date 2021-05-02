@@ -11,4 +11,12 @@ namespace Domain.DTO.Response
         public string Message { get; set; } 
         public bool Status { get; set; }
     }
+
+   public class GlobalUserResponse
+   {
+       public string Token { get; set; }
+       public bool Status { get; set; }
+       public DateTime ExpirationDate { get; set; }
+
+   }
 }

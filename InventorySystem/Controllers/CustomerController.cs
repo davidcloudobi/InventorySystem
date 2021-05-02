@@ -2,13 +2,16 @@
 using System.Threading.Tasks;
 using Domain.DTO.Request;
 using Domain.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventorySystem.Controllers
 {
+
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class CustomerController : Controller
     {
         public CustomerController(ICustomerService customerService)

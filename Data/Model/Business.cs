@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Text.Json.Serialization;
 using Data.Model.Identity;
 
 namespace Data.Model
@@ -38,17 +39,23 @@ namespace Data.Model
 
         public Guid BusinessTypeId { get; set; }
         public BusinessType BusinessType { get; set; }
+        [JsonIgnore]
         public  ICollection<Outlet> Outlets { get; set; }
+        [JsonIgnore]
         public ICollection<ApplicationUser> ApplicationUsers  { get; set; }
+        [JsonIgnore]
         public ICollection<Product> Products { get; set; }
         //public ICollection<Inventory> Inventories { get; set; }
+        [JsonIgnore]
         public ICollection<Sell> Sells { get; set; }
+        [JsonIgnore]
         public ICollection<Customer> Customers { get; set; }
 
 
         //############################################################
-
+        [JsonIgnore]
         public ICollection<Brand> Brands { get; set; }
+        [JsonIgnore]
         public ICollection<Category> Categories { get; set; }
 
     }

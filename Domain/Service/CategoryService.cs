@@ -40,5 +40,17 @@ namespace Domain.Service
             await DbContext.SaveChangesAsync();
             return new GlobalResponse() { Message = "Successful", Status = true };
         }
+
+        public async Task<List<Category>> GetCatergories(Guid businessId)
+        {
+            var business = await DbContext.Businesses.Include(x => x.Brands).FirstOrDefaultAsync(x => x.Id == businessId);
+            if (business is null)
+            {
+                throw new KeyNotFoundException("Business not found");
+            }
+
+            var categories = await DbContext.Categories.Where(x => x.BusinessId == business.Id).ToListAsync();
+            return categories;
+        }
     }
 }

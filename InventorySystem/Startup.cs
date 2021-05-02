@@ -9,7 +9,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Data.Model;
@@ -64,6 +66,29 @@ namespace InventorySystem
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "InventorySystem", Version = "v1" });
+                c.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
+                {
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "bearer",
+                    BearerFormat = "JWT",
+                    In = ParameterLocation.Header,
+                    Description = "JWT Authorization header using the Bearer scheme.",
+                });
+
+                //////Add Operation Specific Authorization///////
+                c.OperationFilter<AuthOperationFilter>();
+                ////////////////////////////////////////////////
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                if (!File.Exists(xmlPath))
+                {
+                    throw new Exception($" Xml comments file does not exist! ({xmlPath})");
+                }
+
+                c.IncludeXmlComments(xmlPath);
+
             });
 
             // configure strongly typed settings object
@@ -76,7 +101,9 @@ namespace InventorySystem
             services.ConfigureAuthJWT(Configuration);
             //##########################################################
 
-
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

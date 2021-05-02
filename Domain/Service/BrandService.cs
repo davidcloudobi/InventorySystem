@@ -38,5 +38,17 @@ namespace Domain.Service
             await DbContext.SaveChangesAsync();
             return new GlobalResponse(){Message = "Successful", Status = true};
         }
+
+        public async Task<List<Brand>> GetBrands(Guid businessId)
+        {
+            var business = await DbContext.Businesses.Include(x => x.Brands).FirstOrDefaultAsync(x => x.Id == businessId);
+            if (business is null)
+            {
+                throw new KeyNotFoundException("Business not found");
+            }
+
+            var brands = await DbContext.Brands.Where(x => x.BusinessId == business.Id).ToListAsync();
+            return brands;
+        }
     }
 }

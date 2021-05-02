@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InventorySystem</name>
+    </assembly>
+    <members>
+        <member name="M:InventorySystem.Controllers.AuthController.Login(System.Guid,Domain.DTO.Request.AuthLoginRequest)">
+            <summary>
+            User Login
+            </summary>
+            <param name="businessId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.BrandController.#ctor(Domain.Interface.IBrandService)">
+            <summary>
+            
+            </summary>
+            <param name="brandService"></param>
+        </member>
+        <member name="P:InventorySystem.Controllers.BrandController.BrandService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:InventorySystem.Controllers.BrandController.Create(System.Guid,Domain.DTO.Request.BrandRequest)">
+            <summary>
+            add new brand
+            </summary>
+            <param name="businessId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.BrandController.GetAllBrands(System.Guid)">
+            <summary>
+            get brands
+            </summary>
+            <param name="businessId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.CategoryController.Create(System.Guid,Domain.DTO.Request.CategoryRequest)">
+            <summary>
+            add new category
+            </summary>
+            <param name="businessId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.CategoryController.GetAllCatergories(System.Guid)">
+            <summary>
+            get categories
+            </summary>
+            <param name="businessId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.InventoryProductController.#ctor(Domain.Interface.IInventoryProductService)">
+            <summary>
+            
+            </summary>
+            <param name="inventoryProductService"></param>
+        </member>
+        <member name="P:InventorySystem.Controllers.InventoryProductController.InventoryProductService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:InventorySystem.Controllers.InventoryProductController.Add(Domain.DTO.Request.InventoryProductDTO)">
+            <summary>
+            Add inventory product
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.OutletController.Create(System.Guid,Domain.DTO.Request.OutletRequest)">
+            <summary>
+            add outlet
+            </summary>
+            <param name="businessId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.ProductController.Add(System.Guid,Domain.DTO.Request.ProductRequest)">
+            <summary>
+            Add product
+            </summary>
+            <param name="businessId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.ProductController.GetProducts(System.Guid)">
+            <summary>
+            Get products
+            </summary>
+            <param name="businessId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.ProductController.GetProduct(System.Guid,System.Guid)">
+            <summary>
+            get single product
+            </summary>
+            <param name="businessId"></param>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.ProductController.UpdatePrice(System.Guid,System.Guid,Domain.DTO.Request.UpdateProductPrice)">
+            <summary>
+            Update Price
+            </summary>
+            <param name="businessId"></param>
+            <param name="productId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.ProductController.DeleteOneProduct(System.Guid,System.Guid)">
+            <summary>
+            delete a product
+            </summary>
+            <param name="businessId"></param>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.ProductController.DeleteOneProduct(System.Guid,Domain.DTO.Request.DeleteProductRequest)">
+            <summary>
+            delete a product
+            </summary>
+            <param name="businessId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.ProductController.FilterProducts(System.String)">
+            <summary>
+            Get products
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.SellController.Create(System.Guid,Domain.DTO.Request.SellRequestDTO)">
+            <summary>
+            Add new sell
+            </summary>
+            <param name="businessId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Controllers.UserController.Create(System.Guid,Domain.DTO.Request.UserRequest)">
+            <summary>
+            Add a user to a business
+            </summary>
+            <param name="businessId"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Helper.MigrateDatabase.EMigrateDatabase(Microsoft.Extensions.Hosting.IHost)">
+            <summary>
+            
+            </summary>
+            <param name="webHost"></param>
+            <returns></returns>
+        </member>
+        <member name="M:InventorySystem.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+    </members>
+</doc>
